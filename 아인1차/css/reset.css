@@ -1,0 +1,26 @@
+@charset "UTF-8";
+*{-webkit-text-size-adjust:none}
+body, html {height:100%;}
+body, form, div, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, fieldset, th, td, input, textarea,button,select,figure{margin:0;padding:0;border:0}
+body{font-size:14px; color:#000; font-family:'SamsungOne', Dotum, '돋움', sans-serif; font-weight:normal;}
+li{list-style:none}
+a{text-decoration:none; color:#000;}
+a[href^="tel"]{font-style:normal}
+address, caption, em, var{font-style:normal;font-weight:normal}
+input, textarea, select{letter-spacing:normal;}
+ol, ul, dl{list-style:none}
+fieldset, img{border:0}
+legend{display:none}
+img{border:0;vertical-align:top}
+hr{display:none}
+table{border-collapse:collapse;border-spacing:0}
+br{letter-spacing:normal}
+p{letter-spacing:normal}
+input{vertical-align:middle}
+input[type="text"], input[type="password"], input[type="time"],input[type="date"],input[type="email"],input[type="tel"],input[type="number"],
+input[type="search"] {width:100%; vertical-align:middle; height:36px; font-size:15px; padding:0 10px; color:#505562; -webkit-box-sizing:border-box; box-sizing:border-box; border:1px solid #bfc7ce; border-radius:3px;
+-webkit-appearance:none; background:#f7fbff;}
+input[type="checkbox"] {vertical-align:middle; -webkit-border-radius:0;}
+button,input[type="button"],input[type="submit"],input[type="reset"],input[type="file"]{-webkit-appearance:button;border-radius:0;background:none;cursor: pointer;}
+textarea {width:100%; padding:10px; line-height:24px; -webkit-box-sizing:border-box; box-sizing:border-box; resize:none; border:1px solid #bfc7ce; border-radius:2px; -webkit-appearance:none;}
+select {vertical-align:middle; -webkit-appearance:none; min-width:150px; padding:0 42px 0 7px; color:#505562; font-size:15px; line-height:32px; border:1px solid #bfc7ce; border-radius:2px;}
