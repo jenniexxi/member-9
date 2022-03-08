@@ -1,0 +1,648 @@
+/* @font-face {
+    font-family:"SamsungOne";
+    src: url(./font/SamsungOneKorean-400.eot);
+    src: url(./font/SamsungOneKorean-400.eot?#iefix) format("embedded-opentype"),
+         url(./font/SamsungOneKorean-400.ttf) format("truetype"),
+         url(./font/SamsungOneKorean-400.woff) format("woff"),
+         url(./font/SamsungOneKorean-400.woff2) format("woff2");
+}
+@font-face {
+    font-family:"SamsungOne700";
+    src: url(./font/SamsungOneKorean-700.eot);
+    src: url(./font/SamsungOneKorean-700.eot?#iefix) format("embedded-opentype"),
+         url(./font/SamsungOneKorean-700.ttf) format("truetype"),
+         url(./font/SamsungOneKorean-700.woff) format("woff"),
+         url(./font/SamsungOneKorean-700.woff2) format("woff2");
+}
+@font-face {
+    font-family:"SSSB";
+    src: url(./font/SamsungSharpSans-Bold.eot);
+    src: url(./font/SamsungSharpSans-Bold.eot?#iefix) format("embedded-opentype"),
+         url(./font/SamsungSharpSans-Bold.ttf) format("truetype"),
+         url(./font/SamsungSharpSans-Bold.woff) format("woff"),
+         url(./font/SamsungSharpSans-Bold.woff2) format("woff2");
+    font-style:normal;
+
+} */
+.blind {
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+}
+
+.top-menu-list,
+.main-menu,
+.kv-ad-inner {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.common-tit {
+    margin-bottom: 60px;
+    font-size: 16px;
+    letter-spacing: 2.5px;
+    ;
+    font-family: 'SamsungOne700', Dotum, '돋움', sans-serif;
+}
+
+.common-tit::before {
+    content: '';
+    display: inline-block;
+    margin-right: 30px;
+    width: 70px;
+    height: 1px;
+    background: #000;
+    vertical-align: middle;
+}
+
+.common-tit span,
+.members-life-subtit .user-name {
+    color: #157aaf
+}
+
+.common-tit .tit-plus {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+    width: 17px;
+    height: 17px;
+    background: #157aaf;
+    border-radius: 9px;
+    vertical-align: middle;
+}
+
+.common-tit .tit-plus::before,
+.common-tit .tit-plus::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+}
+
+.common-tit .tit-plus::before {
+    width: 2px;
+    height: 9px;
+}
+
+.common-tit .tit-plus::after {
+    width: 9px;
+    height: 2px;
+}
+
+.common-btn {
+    padding: 7px 18px;
+    font-size: 14px;
+    color: #767676;
+    border: 1px solid #d6d6d6
+}
+
+.wrap {
+    margin: 0 auto;
+    max-width: 1440px;
+}
+
+.inner-wrap {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+#skip_content a {
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+}
+
+#skip_content a:focus {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+
+.top-menu {
+    background: #f9f9f9;
+    height: 40px;
+}
+
+/* GNB 하다말았음........... */
+.top-menu-list {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.top-menu-list li {
+    display: inline-block;
+    padding: 10px 0;
+}
+
+.top-menu-list a {
+    padding: 10px 11px;
+}
+
+.top-menu-first::after {
+    content: '';
+    display: inline-block;
+    margin: 0 16px;
+    width: 1px;
+    height: 13px;
+    background: #333333;
+}
+
+.top-menu-first a {
+    color: #333333
+}
+
+.main-menu {
+    height: 86px;
+}
+
+.main-menu::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.main-menu .gnb-logo {
+    float: left;
+    padding: 22px 0;
+}
+
+.menu-nav {
+    float: right;
+}
+
+.menu-nav>ul>li {
+    position: relative;
+    display: inline-block;
+    padding: 34px 0;
+    margin: 0 50px;
+}
+
+.menu-nav>ul>li:last-child {
+    margin-right: 0;
+}
+
+.menu-nav .main-common-tit {
+    padding: 9px 12px;
+    font-size: 16px
+}
+
+.depth-menu {
+    z-index: 1;
+    display: none;
+    position: absolute;
+    top: 87px;
+    right: 50%;
+    transform: translate(50%, 0%);
+    padding: 30px;
+    width: 120px;
+    background: #fff;
+    border-top: 1px solid #ccc;
+}
+
+.depth-big .depth-menu {
+    display: block;
+    display: none;
+    right: -50px;
+    transform: translate(0%, 0%);
+    width: 900px;
+    background-color: #ccc;
+}
+
+/* kv */
+.kv-wrap {
+    margin-bottom: 50px;
+}
+
+.kv-wrap .common-btn {
+    display: inline-block;
+    padding: 10px 0;
+    width: 160px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.kv-wrap .slide-arrow {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    width: 53px;
+    height: 67px;
+}
+
+.kv-wrap .slide-next {
+    right: 0;
+    background: url('../images/membership-kv-next-btn.png');
+}
+
+.kv-wrap .slide-prev {
+    left: 0;
+    background: url('../images/membership-kv-prev-btn.png');
+}
+
+.kv-wrap .slide-controls {
+    position: absolute;
+    bottom: 87px;
+    left: 120px;
+}
+
+.kv-wrap .slide-controls ul,
+.kv-wrap .slide-controls li {
+    display: inline-block;
+}
+
+.kv-wrap .slide-controls li button {
+    position: relative;
+    margin: 0 3px;
+    width: 13px;
+    height: 7px;
+    background: #fff;
+    opacity: .5;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.kv-wrap .slide-controls li.on button {
+    opacity: 1;
+}
+
+.kv-wrap .slide-controls li button::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 6.5px solid transparent;
+    border-right: 6.5px solid transparent;
+    border-bottom: 4px solid #fff;
+}
+
+.kv-wrap .slide-controls li button::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 6.5px solid transparent;
+    border-right: 6.5px solid transparent;
+    border-top: 4px solid #fff;
+}
+
+.kv-wrap .slide-controls .slide-btn a {
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+    width: 12px;
+    height: 13px;
+}
+
+.kv-wrap .slide-controls .slide-btn a.play {
+    background: url('../images/membership-kv-play-btn.png') no-repeat;
+}
+
+.kv-wrap .slide-controls .slide-btn a.stop {
+    background: url('../images/membership-kv-pause-btn.png') no-repeat
+}
+
+.kv-slide-wrap {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 605px;
+}
+
+.kv-slide-inner {
+    overflow: hidden;
+    width: 7200px;
+    height: 100%;
+}
+
+.kv-slide-inner::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.kv-slide-inner li {
+    float: left;
+    position: relative;
+    width: 1440px;
+    height: 100%;
+}
+
+.kv-slide01 {
+    background: url('../images/membership-kv-slide01.jpg') no-repeat;
+}
+
+.kv-slide01,
+.kv-slide01 a {
+    color: #232b39;
+}
+
+.kv-slide02,
+.kv-slide03,
+.kv-slide04,
+.kv-slide05 {
+    background: url('../images/membership-kv-slide02.jpg') no-repeat;
+}
+
+.kv-txt-area {
+    position: absolute;
+    top: 80px;
+    left: 120px;
+    max-width: 700px;
+    font-size: 18px;
+}
+
+.kv-txt-area .kv-sub-tit {
+    font-size: 24px;
+    font-family: 'SamsungOne700', Dotum, '돋움', sans-serif;
+}
+
+.kv-txt-area .kv-tit {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 56px;
+    font-family: 'SSSB', Dotum, '돋움', sans-serif;
+}
+
+.kv-txt-area .kv-txt {
+    margin: 20px 0;
+}
+
+.kv-txt-area .common-btn {
+    margin: 10px 0;
+    border: 1px solid #747273;
+}
+
+.kv-slide02 .kv-txt-area .common-btn,
+.kv-slide03 .kv-txt-area .common-btn,
+.kv-slide04 .kv-txt-area .common-btn,
+.kv-slide05 .kv-txt-area .common-btn {
+    border: 1px solid #fff;
+}
+
+.kv-membership-news {
+    position: absolute;
+    top: 0;
+    right: 118px;
+    padding: 0 30px;
+    width: 395px;
+    height: 100%;
+    text-align: center;
+    background: rgba(35, 46, 64, 0.9);
+    box-sizing: border-box;
+}
+
+.kv-membership-news .news-tit {
+    padding: 60px 0;
+    font-family: 'SamsungOne700', Dotum, '돋움', sans-serif;
+    font-size: 16px;
+    letter-spacing: 4px;
+    color: #137fb8;
+}
+
+.kv-membership-news .news-txt,
+.kv-membership-news a,
+.kv-slide02,
+.kv-slide02 a,
+.kv-slide03,
+.kv-slide03 a,
+.kv-slide04,
+.kv-slide04 a,
+.kv-slide05,
+.kv-slide05 a {
+    color: #fff
+}
+
+.kv-membership-news .news-txt {
+    padding: 40px 0;
+    font-size: 24px;
+    word-break: break-all;
+}
+
+.kv-membership-news .common-btn {
+    position: absolute;
+    bottom: 171px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background: #414d60;
+}
+
+.kv-ad {
+    height: 60px;
+    background: #0057b8;
+}
+
+.kv-ad-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: #fff;
+}
+
+.kv-ad-inner::before,
+.kv-ad-inner::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    display: block;
+}
+
+.kv-ad-inner::before {
+    width: 32px;
+    height: 2px;
+    background: #fff;
+}
+
+.kv-ad-inner::after {
+    width: 9px;
+    height: 9px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-45deg);
+}
+
+.kv-ad-inner strong {
+    margin-right: 25px;
+    font-family: 'SamsungOne700', Dotum, '돋움', sans-serif;
+    font-size: 30px;
+}
+
+.kv-ad-inner p {
+    font-size: 16px;
+}
+
+/* my membership 하다말았음..........
+.my-membership{overflow:hidden;padding:50px 0 70px;}
+.my-membership::after{content:'';display:block;clear: both;}
+.user-welcome{float:left;display:flex;justify-content:center;align-items:center;width:514px; height:332px; background:#157aaf; color:#fff;}
+.user-welcome figure{margin-right:45px;}
+.user-welcome p{margin:10px 0;}
+.user-welcome .user-welcome-txt{font-size:22px;}
+.user-class,.user-name{font-family:'SamsungOne700', Dotum, '돋움', sans-serif;}
+.user-welcome .common-btn{margin-top:40px; color:#fff; border-color:#4495bf;}
+.my-membership>ul{float:left;}*/
+
+/* members life */
+.members-life {
+    position: relative
+}
+
+.members-life .common-tit {
+    text-align: right;
+}
+
+.members-life-subtit {
+    height: 45px;
+    background: #edf4fc;
+}
+
+.members-life-subtit p {
+    line-height: 45px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.members-life-content {
+    display: flex;
+    margin: 15px 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.members-life-content li {
+    width: 378px;
+    margin: 15px 0;
+}
+
+.members-life-content li>a {
+    display: block;
+}
+
+/* 밑에부분 다시생각해보기 */
+.members-life-content li figure {
+    position: relative;
+}
+
+.members-life-content li a figure::after,
+.members-life-content li a figure:focus {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #157aaf;
+    opacity: 0;
+    -webkit-transition: all 0.25s;
+    -ms-transition: all 0.25s;
+    transition: all 0.25s;
+}
+
+.members-life-content li a:hover figure::after,
+.members-life-content li a:focus figure::after {
+    opacity: 0.8;
+}
+
+.members-life-content li strong {
+    display: block;
+    margin: 17px 0 10px;
+}
+
+.members-life-content li p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    text-overflow: ellipsis;
+}
+
+.members-life-modal {
+    z-index: 1;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    width: 500px;
+    height: 500px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.members-life-modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* footer */
+footer {
+    color: #fff;
+    background: #333333;
+}
+
+.footer-select-wrap {
+    display: flex;
+    position: relative;
+}
+
+.footer-select-wrap>div>button {
+    padding: 0 40px 0 20px;
+    width: 195px;
+    height: 30px;
+    color: #fff;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.footer-select-wrap>div>ul {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 390px;
+    background-color: #ccc;
+}
+
+
+@media screen and (max-width:1440px) {
+    .kv-slide-wrap {
+        width: 100%;
+    }
+
+    .kv-slide-inner {
+        width: 500%;
+    }
+
+    .kv-slide-inner li {
+        width: 20%;
+    }
+
+}
+
+@media screen and (max-width:1300px) and (min-width:768px) {}
