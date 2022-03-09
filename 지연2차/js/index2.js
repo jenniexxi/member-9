@@ -13,6 +13,15 @@ let startNum = 0;
 let selectIndex;
 let selectSlide;
 let contsWidth = (slideWidth / (slideLength + 2));
+const pagination = document.querySelector('.slide_pagination');
+const slideSpeed = 300;
+let play = setInterval(nextEvent, 3500);
+let curDot;
+const memberImgs = document.querySelectorAll(".members-life-content li a");
+const modals = document.getElementsByClassName("pop_wrap");
+const modalCloseBtns = document.getElementsByClassName("pop-close");
+
+
 
 // clone first and last slide
 const firstNode = slideFirst.cloneNode(true);
@@ -34,7 +43,83 @@ selectIndex = startNum;
 selectSlide = slides[selectIndex];
 selectSlide.classList.add(active);
 
+
+
+// Add pagination dynamically
+let pageChild = '';
+for (var i = 0; i < slideLength; i++) {
+  pageChild += '<li class="dot';
+  pageChild += (i === startNum) ? ' dot_active' : '';
+  pageChild += '" data-index="' + i + '"><a href="#"></a></li>';
+}
+pagination.innerHTML = pageChild;
+const pageDots = document.querySelectorAll('.dot');
+
+
+
+// pagination button event
+[Array.prototype].forEach.call(pageDots, function (dot, i) {
+  dot.addEventListener('click', function (e) {
+    e.preventDefault();
+    resetInterval();
+
+    curDot = document.querySelector('.dot_active');
+    curDot.classList.remove('dot_active');
+    
+    curDot = this;
+    this.classList.add('dot_active');
+
+    selectSlide.classList.remove('slide_active');
+    selectIndex = Number(this.getAttribute('data-index'));
+    selectSlide = slides[selectIndex];
+    selectSlide.classList.add('slide_active');
+    slideList.style.transition = slideSpeed + "ms";
+    slideList.style.transform = `translate(-${contsWidth * (selectIndex + 1)}%, 0)`;
+  });
+});
+
+
+
+// reset interval
+function resetInterval() {
+    if (pauseBtn.classList == 'stop') {
+        clearInterval(play);
+        play = setInterval(nextEvent, 3500);
+    }
+}
+
+
+
+// sync with paging-nextBtn-prevBtn
+function syncWithPaingBtn(idx) {
+    for(let i=0; i < pageDots.length; i++){
+        if( i == idx){
+            pageDots[i].classList.add('dot_active');
+        }
+        else {
+            pageDots[i].classList.remove('dot_active');
+        }
+    }
+
+    // Array.prototype.map.call ( pageDots, (dot) => {
+    //     dot.classList.remove('dot_active');
+    // });
+    // pageDots[turnIndex - 1].classList.add('dot_active');
+}
+
+function getSlideIndex(userSlide) {
+    let turnIndex = userSlide.getAttribute('class');
+    turnIndex = turnIndex.replace('kv-slide0','');
+    turnIndex = turnIndex.replace(' active','');
+    return turnIndex;
+}
+
+
+
+// next button event
 function nextEvent(){
+    resetInterval();
+
     if(selectIndex <= slideLength - 1) {
         slideList.style.transition = `all 0.3s`;
         slideList.style.transform = `translate(-${contsWidth * (selectIndex + 2)}%, 0)`;
@@ -46,12 +131,20 @@ function nextEvent(){
         }, 300);
         selectIndex = -1;
     }
+    
     selectSlide.classList.remove(active);
     selectSlide = slides[++selectIndex];
     selectSlide.classList.add(active);
+
+    syncWithPaingBtn(getSlideIndex(selectSlide) - 1);
 }
 
+
+
+// prev button event
 function prevEvent() {
+    resetInterval();
+
     if(selectIndex >= 0) {
         slideList.style.transition = `all 0.3s`;
         slideList.style.transform = `translate(-${contsWidth * selectIndex}%, 0)`;
@@ -66,21 +159,21 @@ function prevEvent() {
     selectSlide.classList.remove(active);
     selectSlide = slides[--selectIndex];
     selectSlide.classList.add(active);
+
+    syncWithPaingBtn(getSlideIndex(selectSlide) - 1);
 }
 
-// next button
 nextBtn.addEventListener('click', function(){
     nextEvent();
 })
 
-// prev button
 prevBtn.addEventListener('click', function(){
     prevEvent();
 })
 
-// play, pause button
-let play = setInterval(nextEvent, 3500);
 
+
+// puase-play btn toggle
 function puaseTogglePlay() {
     const btnText = pauseBtn.querySelector('.blind');
     if (pauseBtn.classList == 'stop') {
@@ -102,41 +195,66 @@ pauseBtn.addEventListener('click', function(){
 
 
 
+// gnb
+const mainMenu = document.querySelectorAll(".menu-nav > ul > li");
+const subMenu = document.querySelectorAll(".depth-menu");
 
-
-
-
-// Add pagination dynamically
-let pageChild = '';
-for (var i = 0; i < slideLen; i++) {
-  pageChild += '<li class="dot';
-  pageChild += (i === startNum) ? ' dot_active' : '';
-  pageChild += '" data-index="' + i + '"><a href="#"></a></li>';
-}
-pagination.innerHTML = pageChild;
-const pageDots = document.querySelectorAll('.dot');
-
-
-
-/** Pagination Button Event */
-let curDot;
-Array.prototype.forEach.call(pageDots, function (dot, i) {
-  dot.addEventListener('click', function (e) {
-    e.preventDefault();
-    curDot = document.querySelector('.dot_active');
-    curDot.classList.remove('dot_active');
-    
-    curDot = this;
-    this.classList.add('dot_active');
-
-    curSlide.classList.remove('slide_active');
-    curIndex = Number(this.getAttribute('data-index'));
-    curSlide = slideContents[curIndex];
-    curSlide.classList.add('slide_active');
-    slideList.style.transition = slideSpeed + "ms";
-    slideList.style.transform = "translate3d(-" + (slideWidth * (curIndex + 1)) + "px, 0px, 0px)";
-  });
+[].forEach.call(mainMenu, (menu, index, arr) => {
+    menu.addEventListener('mouseenter', e => {
+        subMenu[index].style.display = "block";
+    });
+    menu.addEventListener('mouseleave', e => {
+        subMenu[index].style.display = "none";
+    });
 });
 
 
+
+// modal(popup)
+function Modal(num) {
+    memberImgs[num].onclick = function (e) {
+        e.preventDefault();
+        modals[num].style.display = "block";
+    };
+
+    modalCloseBtns[num].onclick = function (e) {
+        e.preventDefault();
+        modals[num].style.display = "none";
+    };
+};
+
+for (var i = 0; i < memberImgs.length; i++) {
+    Modal(i);
+}
+
+window.onclick = function (event) {
+    if (event.target.className == "pop_wrap") {
+        event.target.style.display = "none";
+    }
+};
+
+
+
+// bottom selectbox
+const infoSelect = document.querySelectorAll(".footer-select-wrap > div");
+const infoLists = document.querySelectorAll(".infoList");
+
+[].forEach.call(infoSelect, (selectbox, index, arr) => {
+    selectbox.addEventListener ("click", function() { 
+        for (let i = 0; i < infoSelect.length; i++) {
+            if ( i == index) {
+                if (infoLists[i].style.display == "block") {
+                    infoLists[i].style.display = "none";
+                } else {
+                    infoLists[i].style.display = "block";
+                }
+            } 
+        }
+    });
+});
+
+// [].forEach.call(infoSelect, (selectbox, index, arr) => {
+//     console.log(selectbox)
+//     selectbox.classList.toggle('.infoList');
+// });
 

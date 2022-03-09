@@ -9,6 +9,31 @@
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/membership.css">
 
+<style>
+    .kv-wrap .slide-controls li{
+        width: 20px;height: 20px;background-color: brown;margin-right: 5px;
+    }
+    .kv-wrap .slide-controls li.dot_active{background-color: blue;}
+    .pop_wrap{display: none;position: fixed;z-index: 1;left: 0;
+        top: 0;width: 100%;height: 100%;overflow: auto;background: rgba(0,0,0,0.4);
+    }
+    .pop{
+        background: #fefefe;
+        margin: 10% auto;
+        padding: 25px;
+        border: 1px solid #d9d9d9;
+        width: 80%;
+        position: relative;
+        border-radius: 3px;
+    }
+    .menu-nav>ul>li.on a{
+        border-bottom: 2px solid blue;
+    }
+    .footer-select-wrap>div>ul{
+        display: none;
+    }
+</style>
+
 </head>
 <body>
     <div class="wrap">
@@ -274,10 +299,6 @@
                                 <strong>Product & Life</strong>
                                 <p>미세먼지로부터 집안공기를 쾌적하게 유지하는 방법</p>
                             </a>
-                            <div class="members-life-modal">
-                                <a class="close" href="#">X</a>
-                                dijfdijfidjfidjfdijfid
-                            </div>
                         </li>
                         <li>
                             <a href="#">
@@ -332,7 +353,7 @@
                     <div class="footer-select-wrap">
                         <div class="select-list01">
                             <button type="button">개인정보취급(처리)방침</button>
-                            <ul>
+                            <ul class="infoList">
                                 <li><a href="#">삼성계정 개인정보(처리)방침</a></li>
                                 <li><a href="#">삼성전자멤버십 개인정보취급(처리)방침</a></li>
                                 <li><a href="#">멤버십블루 개인정보취급(처리)방침</a></li>
@@ -342,7 +363,7 @@
                         </div>
                         <div class="select-list02">
                             <button type="button">More from Samsung</button>
-                            <ul>
+                            <ul class="infoList">
                                 <li><a href="#">삼성계정 개인정보(처리)방침</a></li>
                                 <li><a href="#">삼성전자멤버십 개인정보취급(처리)방침</a></li>
                                 <li><a href="#">멤버십블루 개인정보취급(처리)방침</a></li>
@@ -376,6 +397,97 @@
                 
             </div>
         </div>
+
+        <div class="pop_wrap">
+            <div class="pop pop01">
+                <div class="">
+                    1<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                </div>
+                <a href="#" class="pop-close" style="position: absolute;top: 10px;right: 10px;">X</a>
+            </div>
+        </div>
+
+        <div class="pop_wrap">
+            <div class="pop pop02">
+                <div class="">
+                    22<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                </div>
+                <a href="#" class="pop-close" style="position: absolute;top: 10px;right: 10px;">X</a>
+            </div>
+        </div>
+
+        <div class="pop_wrap">
+            <div class="pop pop03">
+                <div class="">
+                    333<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                </div>
+                <a href="#" class="pop-close" style="position: absolute;top: 10px;right: 10px;">X</a>
+            </div>
+        </div>
+
+        <div class="pop_wrap">
+            <div class="pop pop04">
+                <div class="">
+                    4444<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                </div>
+                <a href="#" class="pop-close" style="position: absolute;top: 10px;right: 10px;">X</a>
+            </div>
+        </div>
+
+        <div class="pop_wrap">
+            <div class="pop pop05">
+                <div class="">
+                    55555<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                </div>
+                <a href="#" class="pop-close" style="position: absolute;top: 10px;right: 10px;">X</a>
+            </div>
+        </div>
+
+        <div class="pop_wrap">
+            <div class="pop pop06">
+                <div class="">
+                    666666<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                    asldfjlkasjdfljakdfasdlkfa<br/>
+                    sfjlasjkflajsdlfjalsdjflajs<br/>
+                </div>
+                <a href="#" class="pop-close" style="position: absolute;top: 10px;right: 10px;">X</a>
+            </div>
+        </div>
+        
     </div>
     <script src="js/index2.js"></script>
 </body>
