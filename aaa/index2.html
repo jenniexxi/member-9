@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+#js-slideshow-container {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+}
+
+#js-slideshow-container #btn-prev,
+#js-slideshow-container #btn-next {
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+    color: #ffffff;
+    font-size: 4em;
+    line-height: 1;
+    text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+    transform: translateY( -50% );
+}
+
+#js-slideshow-container #btn-prev {
+    left: 15px;
+}
+
+#js-slideshow-container #btn-next {
+    right: 15px;
+}
+
+    #js-slideshow-container #btn-prev span,
+    #js-slideshow-container #btn-next span {
+        display: none;
+    }
+
+#js-slideshow-container #js-slideshow {
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    transition: left 0.3s;
+}
+
+#js-slideshow-container #js-slideshow li {
+    display: inline;
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 100%;
+    background-color: #f0f0f0;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#js-slideshow-container #js-slideshow li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    transition: color 0.2s ease-in;
+}
+
+#js-slideshow-container #js-slideshow li a:hover {
+    color: #ef233c;
+}
+
+#js-slideshow-container #js-slideshow li a span {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0.75em 1.5em;
+    font-size: 1.3em;
+    background: #000000; /* fallback for old browsers */
+    background: rgba(0, 0, 0, 0.8);
+}
+#btn-prev{width: 50px;height: 50px;background-color: red;}
+#btn-next{width: 50px;height: 50px;background-color: blue;}
+</style>
+</style>
+</head>
+<body>
+    <div id="js-slideshow-container">
+        <ul id="js-slideshow">
+            <li style="background-image: url('https://cabrerahector.com/wp-content/uploads/2018/02/carousel.jpg');">
+                <span>How to create a simple image slider with vanilla JavaScript</span>
+            </li>
+            <li style="background-image: url('https://cabrerahector.com/wp-content/uploads/2015/05/banner-650x418.png');">
+                <span>WordPress Popular Posts 5.4: Widget block improvements plus prep work for CSP support</span>
+            </li>
+            <li style="background-image: url('https://cabrerahector.com/wp-content/uploads/2020/05/bitbucket-pipelines-deploy-to-server.png');">
+                <span>Deploy Code to a Remote Server with Bitbucket Pipelines</span>
+            </li>
+        </ul>
+    </div>
+    <script src="index2.js"></script>
+</body>
+</html>
