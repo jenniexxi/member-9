@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung membership</title>
+    
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/membership.css">
+
+
+    <style>
+    *, html, body {margin: 0;}
+    .carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+    }
+    .carousel-wrapper * {
+    box-sizing: border-box;
+    }
+    .carousel {
+    transform-style: preserve-3d;
+    }
+    .carousel__photo {
+    opacity: 1;
+    position: absolute;
+    top:0;
+    width: 100%;
+    margin: auto;
+    padding: 1rem 4rem;
+    z-index: 100;
+    transition: transform .5s, z-index .5s;
+    }
+    .carousel__photo.initial,
+    .carousel__photo.active {
+    opacity: 1;
+    position: relative;
+    z-index: 900;
+    }
+    .carousel__photo.prev,
+    .carousel__photo.next {
+    z-index: 800;
+    }
+    .carousel__photo.prev {
+    transform: translateX(-100%); /* Move 'prev' item to the left */
+    }
+    .carousel__photo.next {
+    transform: translateX(100%); /* Move 'next' item to the right */
+    }
+    .carousel__button--prev,
+    .carousel__button--next {
+    position: absolute;
+    top:50%;
+    width: 3rem;
+    height: 3rem;
+    background-color: #FFF;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    cursor: pointer; 
+    z-index: 1001; /* Sit on top of everything */
+    border: 1px solid black;
+    }
+    .carousel__button--prev {
+    left:0;
+    }
+    .carousel__button--next {
+    right:0;
+    }
+    .carousel__button--prev::after,
+    .carousel__button--next::after {
+    content: " ";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    left: 54%;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    transform: translate(-50%, -50%) rotate(135deg);
+    }
+    .carousel__button--next::after {
+    left: 47%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+        <div id="skip_content">
+            <a href="#container">본문 바로가기</a>
+        </div>
+
+        <header>
+            <div class="pc-menu-wrap">
+                <article class="top-menu">
+                    <div class="top-menu-list">
+                        <ul class="top-menu-first">
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">매장찾기</a></li>
+                        </ul>
+                        <ul class="top-menu-second">
+                            <li><a href="#">로그인</a></li>
+                            <li><a href="#">회원가입</a></li>
+                        </ul>
+                    </div>
+                </article>
+        
+                <!-- main menu -->
+                <article class="main-menu">
+                    <a href="#" class="gnb-logo">
+                        <img src="./images/samsung-membership-logo.jpg" alt="samsung">
+                    </a>
+                    <nav class="menu-nav">
+                        <ul>
+                            <li>
+                                <a href="#" class="main-menu-tit">멤버십 가이드</a>
+                                <div class="depth-menu-wrap">
+                                    <ul class="depth-menu">
+                                        <li><a href="#">삼성전자 멤버십 소개</a></li>
+                                        <li><a href="#">가입 안내</a></li>
+                                        <li><a href="#">포인트 안내</a></li>
+                                        <li><a href="#">등급&혜택안내</a></li>
+                                        <li><a href="#">멤버십 카드 안내</a></li>
+                                        <li><a href="#">무상서비스 안내</a></li>
+                                        <li><a href="#">멤버십 가족 안내</a></li>
+                                        <li><a href="#">마일리지 안내</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#" class="main-menu-tit">멤버스 라이프</a>
+                                <div class="depth-menu-wrap">
+                                    <ul class="depth-menu">
+                                        <li><a href="#">Trend</a></li>
+                                        <li><a href="#">Life</a></li>
+                                        <li><a href="#">Live Contents</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#" class="main-menu-tit">이벤트</a>
+                                <div class="depth-menu-wrap">
+                                    <ul class="depth-menu">
+                                        <li><a href="#">웨딩 마일리지</a></li>
+                                        <li><a href="#">아카데미 마일리지</a></li>
+                                        <li><a href="#">이사 마일리지</a></li>
+                                        <li><a href="#">이벤트</a></li>
+                                        <li><a href="#">On-Site Story</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="depth-big">
+                                <a href="#" class="main-menu-tit">마이멤버십</a>
+                                <div class="depth-menu-wrap">
+                                    <ul class="depth-menu">
+                                        <li>
+                                            <p>구매</p>
+                                            <ul>
+                                                <li><a href="#">- 구매 내역 조회</a></li>
+                                                <li><a href="#">- 영수증 조회</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <p>포인트</p>
+                                            <ul>
+                                                <li><a href="#">- 구매 내역 조회</a></li>
+                                                <li><a href="#">- 포인트 내역 조회</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <p><a href="#">바우처</a></p>
+                                        </li>
+                                        <li>
+                                            <p>마일리지</p>
+                                            <ul>
+                                                <li><a href="#">- 웨딩 마일리지 현황</a></li>
+                                                <li><a href="#">- 아카데미 마일리지 현황</a></li>
+                                                <li><a href="#">- 이사 마일리지 현황</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <p><a href="#">캐시백</a></p>
+                                        </li>
+                                        <li>
+                                            <p>멤버십 카드</p>
+                                            <ul>
+                                                <li><a href="#">- 카드내역 조회</a></li>
+                                                <li><a href="#">- 카드 분실 신고</a></li>
+                                                <li><a href="#">- 포인트 비밀번호 설정/변경</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <p><a href="#">멤버십 가족</a></p>
+                                        </li>
+                                        <li>
+                                            <p><a href="#">무상서비스</a></p>
+                                        </li>
+                                        <li>
+                                            <p><a href="#">블루케어</a></p>
+                                        </li>
+                                        <li>
+                                            <p>나의 참여 내역</p>
+                                            <ul>
+                                                <li><a href="#">- 응모한 이벤트</a></li>
+                                                <li><a href="#">- 이전 라이프 가입 내역 조회</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </article>
+                <!--// main menu -->
+            </div>
+
+            <div class="mo-menu-wrap">
+                <article>
+                    <div class="mo-menubar">
+                        <a href="#" class="gnb-logo">
+                            <img src="./images/samsung-membership-logo_v2.jpg" alt="samsung">
+                        </a>
+                        <div class="menu-icon-wrap">
+                            <a href="#"><img src="./images/icon-card.png" alt="삼성카드"></a>
+                            <a href="#" class="icon-menubar"><img src="./images/icon-menubar.png" alt="메뉴바"><span class="blind">메뉴 열기버튼</span></a>
+                        </div>
+                    </div>
+
+                    <section class="mo-menu-list-wrap">
+                        <a class="menu-close" href="#"><span class="blind">메뉴 닫기버튼</span></a>
+                        <div class="menu-login">
+                            <a href="#"><img src="./images/user-class.jpg" alt="등급없음을 나타내는 회색하트"><span>로그인해주세요.</span></a>
+                        </div>
+                        <div class="mo-menu-list">
+                            <ul>
+                                <li>
+                                    <p><a href="#"><img src="./images/icon-home.png" alt="사이드 메뉴 아이콘 홈" class="mo-menu-icon">홈</a></p>
+                                </li>
+                                <li>
+                                    <p><img src="./images/icon-guide.png" alt="사이드 메뉴 아이콘 가이드" class="mo-menu-icon">멤버십 가이드</p>
+                                    <ul>
+                                        <li><a href="#">삼성전자 멤버십 소개</a></li>
+                                        <li><a href="#">가입 안내</a></li>
+                                        <li><a href="#">포인트 안내</a></li>
+                                        <li><a href="#">등급&혜택 안내</a></li>
+                                        <li><a href="#">멤버십 카드 안내</a></li>
+                                        <li><a href="#">무상서비스 안내</a></li>
+                                        <li><a href="#">멤버십 가족 안내</a></li>
+                                        <li><a href="#">마일리지 안내</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <p><img src="./images/icon-life.png" alt="사이드 메뉴 아이콘 라이프" class="mo-menu-icon">멤버스 라이프</p>
+                                    <ul>
+                                        <li><a href="#">Trend</a></li>
+                                        <li><a href="#">Life</a></li>
+                                        <li><a href="#">Live Contents</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <p><img src="./images/Icon-event.png" alt="사이드 메뉴 아이콘 이벤트" class="mo-menu-icon">이벤트</p>
+                                    <ul>
+                                        <li><a href="#">웨딩 마일리지</a></li>
+                                        <li><a href="#">아카데미 마일리지</a></li>
+                                        <li><a href="#">이사 마일리지</a></li>
+                                        <li><a href="#">이벤트</a></li>
+                                        <li><a href="#">On-Site Story</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mo-depth-big">
+                                    <p><img src="./images/icon-my_membership.png" alt="사이드 메뉴 아이콘 마이멤버십" class="mo-menu-icon">마이 멤버십</p>
+                                    <ul>
+                                        <li class="mo-big-list">
+                                            <p><a href="#">구매</a></p>
+                                            <ul>
+                                                <li><a href="#">구매 내역 조회</a></li>
+                                                <li><a href="#">영수증 조회</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="mo-big-list">
+                                            <p><a href="#">포인트</a></p>
+                                            <ul>
+                                                <li><a href="#">구매 내역 조회</a></li>
+                                                <li><a href="#">포인트 내역 조회</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="mo-big-list">
+                                            <a href="#">바우처</a>
+                                        </li>
+                                        <li class="mo-big-list">
+                                            <p><a href="#">마일리지</a></p>
+                                            <ul>
+                                                <li><a href="#">웨딩 마일리지 현황</a></li>
+                                                <li><a href="#">아카데미 마일리지 현황</a></li>
+                                                <li><a href="#">이사 마일리지 현황</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="mo-big-list">
+                                            <a href="#">캐시백</a>
+                                        </li>
+                                        <li class="mo-big-list">
+                                            <p><a href="#">멤버십 카드</a></p>
+                                            <ul>
+                                                <li><a href="#">카드내역 조회</a></li>
+                                                <li><a href="#">카드 분실 신고</a></li>
+                                                <li><a href="#">포인트 비밀번호 설정/변경</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="mo-big-list">
+                                            <a href="#">멤버십 가족</a>
+                                            <a href="#">무상서비스</a>
+                                            <a href="#">블루케어</a>
+                                        </li>
+                                        <li class="mo-big-list">
+                                            <p><a href="#">나의 참여 내역</a></p>
+                                            <ul>
+                                                <li><a href="#">응모한 이벤트</a></li>
+                                                <li><a href="#">이전 라이프 가입 내역 조회</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="mo-menu-set">
+                                <a href="#"><img src="./images/icon-setting.png" alt="톱니바퀴 아이콘">설정</a>
+                                <a href="#"><img src="./images/icon-login.png" alt="로그인 아이콘">로그인</a>
+                            </div>
+                            <div class="menu-dimm"></div>
+                        </div>
+                    </section>
+                </article>
+            </div>
+        </header>
+
+        <div class="container" id="container">
+            <!-- kv -->
+            <article class="kv-wrap">
+                <div class="kv-slide-wrap">
+                    <button type="button" class="slide-arrow slide-prev"><span class="blind">이전 슬라이드</span></button>
+                    <ul class="kv-slide-inner">
+                        <li class="kv-slide01">
+                            <figure>
+                                <img class="pc-show" src="./images/membership-kv-slide01.jpg" alt="삼성전자 OK캐쉬백 제튜카드로 결제하는모습">
+                                <img class="mo-show" src="./images/membership-kv-slide01-mo.jpg" alt="삼성전자 OK캐쉬백 제튜카드로 결제하는모습">
+                            </figure>
+                            <div class="kv-txt-area">
+                                <p class="kv-sub-tit">Samsung X OK CASHBAG</p>
+                                <strong class="kv-tit">삼성전자 제품, 이제 OK캐쉬백 <br>포인트로 구매하세요!</strong>
+                                <p class="kv-txt">삼성전자 OK캐쉬백 제휴카드 발급 시, 지정 사용처에서<br> 포인트를 합산하여 쓰실 수 있습니다.</p>
+                                <a class="common-btn" href="#">자세히 보기</a>
+                            </div>
+                            <div class="kv-membership-news">
+                                <p class="news-tit">MEMBERSHIP NEWS</p>
+                                <p class="news-txt">나의 멤버십 등급부터 보유<br> 포인트까지! 마이 멤버십 둘러보기</p>
+                                <a class="common-btn" href="#">자세히 보기</a>
+                            </div>
+                        </li>
+                        <li class="kv-slide02">
+                            <figure>
+                                <img class="pc-show" src="./images/membership-kv-slide02.jpg" alt="">
+                                <img class="mo-show" src="./images/membership-kv-slide02-mo.jpg" alt="">
+                            </figure>
+                            <div class="kv-txt-area">
+                                <p class="kv-sub-tit">2</p>
+                                <strong class="kv-tit">삼성전자 제품, 이제 OK캐쉬백 <br>포인트로 구매하세요!</strong>
+                                <p class="kv-txt">삼성전자 OK캐쉬백 제휴카드 발급 시, 지정 사용처에서<br> 포인트를 합산하여 쓰실 수 있습니다.</p>
+                                <a class="common-btn" href="#">자세히 보기</a>
+                            </div>
+                            <div class="kv-membership-news">
+                                <p class="news-tit">2</p>
+                                <p class="news-txt">나의 멤버십 등급부터 보유<br> 포인트까지! 마이 멤버십 둘러보기</p>
+                                <a class="common-btn" href="#">자세히 보기</a>
+                            </div>    
+                        </li>
+                        <li class="kv-slide03"> 
+                            <figure>
+                                <img class="pc-show" src="./images/membership-kv-slide02.jpg" alt="">
+                                <img class="mo-show" src="./images/membership-kv-slide02-mo.jpg" alt="">
+                            </figure>
+                            <div class="kv-txt-area">
+                                <p class="kv-sub-tit">3</p>
+                                <strong class="kv-tit">삼성전자 제품, 이제 OK캐쉬백 <br>포인트로 구매하세요!</strong>
+                                <p class="kv-txt">삼성전자 OK캐쉬백 제휴카드 발급 시, 지정 사용처에서<br> 포인트를 합산하여 쓰실 수 있습니다.</p>
+                                <a class="common-btn" href="#">자세히 보기</a>
+                            </div>
+                            <div class="kv-membership-news">
+                                <p class="news-tit">3</p>
+                                <p class="news-txt">나의 멤버십 등급부터 보유<br> 포인트까지! 마이 멤버십 둘러보기</p>
+                                <a class="common-btn" href="#">자세히 보기</a>
+                            </div>
+                        </li>
+                        <li class="kv-slide04">
+                            <figure>
+                                <img class="pc-show" src="./images/membership-kv-slide02.jpg" alt="">
+                                <img class="mo-show" src="./images/membership-kv-slide02-mo.jpg" alt="">
+                            </figure>
+                            <div class="kv-txt-area">
+                                <p class="kv-sub-tit">4</p>
+                                <strong class="kv-tit">삼성전자 제품, 이제 OK캐쉬백 <br>포인트로 구매하세요!</strong>
+                                <p class="kv-txt">삼성전자 OK캐쉬백 제휴카드 발급 시, 지정 사용처에서<br> 포인트를 합산하여 쓰실 수 있습니다.</p>
+                                <a class="common-btn" href="#">자세히 보기</a>
+                            </div>
+                            <div class="kv-membership-news">
+                                <p class="news-tit">4</p>
+                                <p class="news-txt">나의 멤버십 등급부터 보유<br> 포인트까지! 마이 멤버십 둘러보기</p>
+                                <a class="common-btn" href="#">자세히 보기</a>
+                            </div>
+                        </li>
+                        <li class="kv-slide05">
+                            <figure>
+                                <img class="pc-show" src="./images/membership-kv-slide02.jpg" alt="">
+                                <img class="mo-show" src="./images/membership-kv-slide02-mo.jpg" alt="">
+                            </figure>
+                            <div class="kv-txt-area">
+                                <p class="kv-sub-tit">5</p>
+                                <strong class="kv-tit">삼성전자 제품, 이제 OK캐쉬백 <br>포인트로 구매하세요!</strong>
+                                <p class="kv-txt">삼성전자 OK캐쉬백 제휴카드 발급 시, 지정 사용처에서<br> 포인트를 합산하여 쓰실 수 있습니다.</p>
+                                <a class="common-btn" href="#">자세히 보기</a>
+                            </div>
+                            <div class="kv-membership-news">
+                                <p class="news-tit">5</p>
+                                <p class="news-txt">나의 멤버십 등급부터 보유<br> 포인트까지! 마이 멤버십 둘러보기</p>
+                                <a class="common-btn" href="#">자세히 보기</a>
+                            </div>
+                        </li>
+                    </ul>                    
+                    <button type="button" class="slide-arrow slide-next"><span class="blind">다음 슬라이드</span></button>
+                    <div class="slide-controls">
+                        <ul>
+                            <!-- <li class="on"><button type="button"><span class="blind">slide1</span></button></li>
+                            <li><button type="button"><span class="blind">slide2</span></button></li>
+                            <li><button type="button"><span class="blind">slide3</span></button></li>
+                            <li><button type="button"><span class="blind">slide4</span></button></li>
+                            <li><button type="button"><span class="blind">slide</span></button></li> -->
+                        </ul>
+                        <span class="slide-btn">
+                            <a href="#" class="stop"><span class="blind">일시정지</span></a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="carousel-wrapper">
+                    <div class="carousel">
+                    <article class="carousel__photo" style="background-color: aqua;"></article>
+                    <article class="carousel__photo" style="background-color: rgb(25, 49, 184);"></article>
+                    <article class="carousel__photo" style="background-color: rgb(177, 145, 42);"></article>
+                    <article class="carousel__photo" style="background-color: rgb(147, 32, 201);"></article>
+                    <article class="carousel__photo" style="background-color: rgb(238, 26, 90);"></article>
+                      <div class="carousel__button--next"></div>
+                      <div class="carousel__button--prev"></div>
+                    </div>
+                </div>
+
+
+
+                <div class="kv-membership-news-mo mo-show">
+                    <p class="news-tit">MEMBERSHIP NEWS</p>
+                    <p class="news-txt">나의 멤버십 등급부터 보유 포인트까지!<br> 마이 멤버십 둘러보기</p>
+                    <a class="common-btn" href="#">자세히 보기</a>
+                </div>
+
+                <div class="kv-ad">
+                    <a href="#">
+                        <div class="kv-ad-inner">
+                            <strong>BLUE CARE</strong>
+                            <p>삼성전자 고객만을 위한 360도 특별한 토탈케어 서비스를 소개합니다.</p>
+                        </div>
+                    </a>
+                </div>
+            </article>
+            <!-- // kv -->
+
+            
+            <div class="inner-wrap">
+                <!-- my membership -->
+                <article class="my-membership">
+                    <p class="common-tit">My <span>Membership</span><span class="tit-plus"></span></p>
+                    <section class="user-welcome">
+                        <div>
+                            <figure>
+                                <img src="./images/my-membership-royal_blue-premium.jpg" alt="로열블루 프리미어">
+                            </figure>
+                            <div class="user-welcome-txtbox">
+                                <p class="user-welcom-p">
+                                    <span class="user-class">로열블루 프리미어</span>
+                                    <span class="user-name">홍길동</span><br>고객님,환영합니다!
+                                </p>
+                                <p>TV 정기 무상점검 서비스 기간입니다.<br>무료점검 서비스를 신청하세요.</p>
+                                <button type="button" class="common-btn">자세히보기</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <ul class="user-info-wrap">
+                        <li>
+                            <strong><a href="#">구매내역</a></strong>
+                            <span>최근 구매내역</span>
+                            <p><span>3</span> 건</p>
+                        </li>
+                        <li>
+                            <strong><a href="#">마이포인트</a></strong>
+                            <span>보유 중인 포인트</span>
+                            <p><span>42,000</span> 포인트</p>
+                        </li>
+                        <li>
+                            <strong><a href="#">이벤트 응모내역</a></strong>
+                            <span>응모 건 수</span>
+                            <p><span>2</span> 건</p>
+                        </li>
+                        <li>
+                            <strong><a href="#">무상서비스</a></strong>
+                            <span>무상서비스 대상 여부 : <span>대상</span></span>
+                            <p><span>2016-08-31</span> 까지</p>
+                        </li>
+                    </ul>
+                </article>
+                <!-- // my membership -->
+
+                <!-- members life -->
+                <article class="members-life">
+                    <p class="common-tit">Members’ <span>Life</span><span class="tit-plus"></span></p>
+                    <div class="members-life-subtit">
+                        <p><span class="user-name">홍길동</span> 고객님을 위한 추천 컨텐츠</p>
+                    </div>
+                    <ul class="members-life-content">
+                        <li>
+                            <a href="#">
+                                <figure>
+                                    <img src="./images/members-life01.jpg" alt="검은색 청소기가 카페트위에 올려져있는 모습">
+                                </figure>
+                                <strong>Product & Life</strong>
+                                <p>미세먼지로부터 집안공기를 쾌적하게 유지하는 방법</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <figure>
+                                    <img src="./images/members-life02.jpg" alt="하얀 냉장고에 신선한 과일과 야채가 가득 들어있고 열린 야채보관함에서 냉기가 나오고있다.">
+                                </figure>
+                                <strong>Product & Life</strong>
+                                <p>여름철 쉽게 상하는 음식들 안전하게 보관하는 꿀팁!<br>여름철 쉽게 상하는 음식들 안전하게 보관하는 꿀팁!</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <figure>
+                                    <img src="./images/members-life03.jpg" alt="하얀 프레임이 살짝 튀어나온 감각적인 디자인의 티비가 비스듬히 세워져있다.">
+                                </figure>
+                                <strong>Product & Life</strong>
+                                <p>현대적인 인테리어와 조화를 이룬 감각적인 TV</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <figure>
+                                    <img src="./images/members-life04.jpg" alt="하얀색 삼성오븐기">
+                                </figure>
+                                <strong>Product & Life</strong>
+                                <p>핫블라스트 직화열풍으로 뚝딱 해내는 초대 요리</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <figure>
+                                    <img src="./images/members-life05.jpg" alt="한 손에 아담한크기의 하얀색 스마트 빔이 들려있다.">
+                                </figure>
+                                <strong>Product & Life</strong>
+                                <p>내 손안의 스마트 빔 - 아담한 크기, 간편한 휴대성</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <figure>
+                                    <img src="./images/members-life06.jpg" alt="햐얀배경에 흰색 세탁기가 작동되고있다.">
+                                </figure>
+                                <strong>Product & Life</strong>
+                                <p>세탁 도중에 아차! 하지 마세요, 좀 더 똑똑한 세탁 도중에 아차! 하지 마세요, 좀 더 똑똑한 세탁 도중에 아차! 하지 마세요,좀 더 똑똑한 세탁 도중에 아차! 하지 마세요,</p>
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+                <!-- // members life -->
+
+                <!-- memebership event -->
+                <article class="event">
+                    <p class="common-tit">Membership <span>Event</span><span class="tit-plus"></span></p>
+                    <a href="#">
+                        <div class="event-img">
+                            <figure>
+                                <img src="./images/membership-event-01.jpg" alt="모니터 화면에는 높은 산 위에서 아래로찍은 구름화면이 나오고있다.">
+                            </figure>
+                            <div class="event-new-icon"><span class="blind">NEW</span></div>
+                        </div>
+                        <div class="event-txt">
+                            <p>세리프 TV를 사랑하는 사람들_2 아트디렉터 세리프 TV를 사랑하는 사람들_2 아트디렉터</p>
+                            <span>2016-09-01 ~ 2016-09-20</span>
+                            <div class="common-btn">자세히보기</div>
+                        </div>
+                    </a>
+                </article>
+                <!-- // memebership event -->
+
+                <!-- memebership mileage -->
+                <article class="mileage">
+                    <p class="common-tit">Membership <span>Mileage</span><span class="tit-plus"></span></p>
+                    <a href="#">
+                        <div class="mileage-img">
+                            <figure>
+                                <img src="./images/membership-mileage-01.jpg" alt="결혼식장에서 서로를 안고있는 커플의 뒷모습">
+                            </figure>
+                        </div>
+                        <div class="mileage-txt">
+                            <p>웨딩 마일리지</p>
+                            <span>혼수 가전 준비의 첫단계.<br>최대 300만 포인트 혜택</span>
+                            <div class="common-btn">신청하기</div>
+                        </div>
+                    </a>
+                </article>
+                <!-- memebership mileage -->
+            </div>
+
+            <!-- memebership guide -->
+            <article class="guide">
+                <div class="inner-wrap">
+                    <p class="common-tit">Membership <span>Guide</span><span class="tit-plus"></span></p>
+                    <div>
+                        <section>
+                            <a href="#">
+                                <figure>
+                                    <img src="./images/membership-guide-person.jpg" alt="사람아이콘">
+                                </figure>
+                                <div class="guide-txt">
+                                    <strong>삼성전자 멤버십</strong>
+                                    <p>삼성전자 멤버십에 처음 오셨나요?<br> 다양한 혜택을 만나보세요.</p>
+                                    <div class="common-btn">자세히보기</div>
+                                </div>
+                            </a>
+                        </section>
+                        <section>
+                            <a href="#">
+                                <figure>
+                                    <img src="./images/membership-guide-point.jpg" alt="포인트아이콘">
+                                </figure>
+                                <div class="guide-txt">
+                                    <strong>삼성전자 포인트</strong>
+                                    <p>삼성전자 포인트의 적립부터 사용까지<br> 포인트를 똑똑하게 활용해 보세요.</p>
+                                    <div class="common-btn">자세히보기</div>
+                                </div>
+                            </a>
+                        </section>
+                        <section>
+                            <a href="#">
+                                <figure>
+                                    <img src="./images/membership-guide-royal.jpg" alt="왕관아이콘">
+                                </figure>
+                                <div class="guide-txt">
+                                    <strong>로열블루 혜택</strong>
+                                    <p>로열블루는 혜택부터 다릅니다.<br> 특별한 혜택과 서비스로 모십니다.</p>
+                                    <div class="common-btn">자세히보기</div>
+                                </div>
+                            </a>
+                        </section>
+                    </div>
+                </div>
+            </article>
+            <!-- // memebership guide -->
+
+            <!-- info-box -->
+            <article class="info-box">
+                <div class="inner-wrap">
+                    <section class="info-noti">
+                        <strong><a href="#">공지사항</a></strong>
+                        <ul>
+                            <li><a href="#">2016년 아카데미 마일리지 가입 종료 안내</a></li>
+                            <li><a href="#">시스템 점검 작업에 따른 서비스 이용안내</a></li>
+                            <li><a href="#">OK 캐시백 시스템 정기</a></li>
+                        </ul>
+                    </section>
+                    <section class="info-faq">
+                        <strong><a href="#">FAQ</a></strong>
+                        <ul>
+                            <li><a href="#"><img src="./images/icon-faq-person.png" alt="사람아이콘"><p>회원</p></a></li>
+                            <li><a href="#"><img src="./images/icon-faq-point.png" alt="포인트아이콘"><p>포인트</p></a></li>
+                            <li><a href="#"><img src="./images/icon-faq-card.png" alt="카드아이콘"><p>카드</p></a></li>
+                            <li><a href="#"><img src="./images/icon-faq-fix.png" alt="공구아이콘"><p>무상서비스</p></a></li>
+                        </ul>
+                    </section>
+                    <section class="info-call">
+                        <strong><a href="#">멤버십 콜센터</a></strong>
+                        <p>1588-3366</p>
+                        <div class="info-call-txt">
+                            <p>평일 09:00-18:00<br>
+                                토요일 09:00-13:00<br>
+                                일요일/공휴일은 휴무
+                            </p>
+                            <ul>
+                                <li><a href="#"><img src="./images/icon-call-shop.png" alt="건물아이콘"><p>매장찾기</p></a></li>
+                                <li><a href="#"><img src="./images/icon-call-center.png" alt="헤드셋아이콘"><p>서비스센터<br class="mo-show"> 찾기</p></a></li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </article>
+
+
+
+            <!-- footer -->
+            <footer>
+                <div class="top-footer-wrap">
+                    <div class="footer-select-wrap">
+                        <div class="select-list">
+                            <button type="button" class="select-btn">개인정보취급(처리)방침</button>
+                            <ul class="select-drop">
+                                <li><a href="#">삼성계정 개인정보(처리)방침</a></li>
+                                <li><a href="#">삼성전자멤버십 개인정보취급(처리)방침</a></li>
+                                <li><a href="#">멤버십블루 개인정보취급(처리)방침</a></li>
+                                <li><a href="#">Samsung 서비스 이용약관</a></li>
+                                <li><a href="#">삼성전자 멤버십 이용약관</a></li>
+                            </ul>
+                        </div>
+                        <div class="select-list select-more">
+                            <button type="button" class="select-btn">More from Samsung</button>
+                            <ul class="select-drop">
+                                <li><a href="#">삼성닷컴</a></li>
+                            </ul>
+                        </div>
+                        <div class="sns-link">
+                            <ul>
+                                <li><a href="#"><img src="./images/icon-twitter.jpg"><span class="blind">twitter</span></a></li>
+                                <li><a href="#"><img src="./images/icon-facebook.jpg"><span class="blind">facebook</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <address class="footer-addr-wrap">
+                        <p>
+                            주소 : 경기 수원시 영통구 매탄동 416 삼성전자 주식회사<br>
+                            <span>대표이사 : 권오현</span><span>사업자 등록번호 : 124-81-00998</span><span>대표전화 : 1588-3366</span><span>통신판매업신고번호 : 2000-경기수원-0515호</span>
+                        </p>
+                    </address>
+                    <a class="footer-sitemap" href="#">SITEMAP</a>
+                    <div class="footer-contrast">
+                        <a class="yb-btn" href="#">고대비 보기</a>
+                        <a class="wh-btn" href="#">원본 보기</a>
+                    </div>
+                </div>
+                
+                <div class="bt-footer-wrap">
+                    <a href="#" class="footer-logo"><img src="./images/icon-bt-samsung-logo.jpg" alt="삼성"></a>
+                    <p class="footer-copy">&copy; 2016 SAMSUNG. All rights reserved.</p>
+                    <a href="#" class="footer-wa"><img src="./images/icon-wa.jpg" alt="웹사이트 접근성 우수 사이트 인증마크">웹 접근성 우수 사이트</a>
+                    <a href="#" class="footer-ko"><img src="./images/icon-ko.jpg" alt="한국 국기">KOR / Korea</a>
+                </div>
+            </footer>
+        </div>
+        <!-- // footer -->
+    </div>
+    <div class="membership-life-popup">
+        <div class="life-popup">미세먼지로부터 집안공기를 쾌적하게 유지하는 방법</div>
+        <div class="life-popup">여름철 쉽게 상하는 음식들 안전하게 보관하는 꿀팁!</div>
+        <div class="life-popup">현대적인 인테리어와 조화를 이룬 감각적인 TV</div>
+        <div class="life-popup">핫블라스트 직화열풍으로 뚝딱 해내는 초대 요리</div>
+        <div class="life-popup">내 손안의 스마트 빔 - 아담한 크기, 간편한 휴대성</div>
+        <div class="life-popup">세탁 도중에 아차! 하지 마세요,</div>
+        <button type="button" class="popup-close"><span class="blind">닫기 버튼</span></button>
+    </div>
+    <div class="popup-dimm"></div>
+    <!-- <script src="js/index.js"></script> -->
+    <script src="index-task.js"></script>
+</body>
+</html>
