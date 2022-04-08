@@ -11,79 +11,62 @@
 
 
     <style>
-    *, html, body {margin: 0;}
-    .carousel-wrapper {
-    overflow: hidden;
-    width: 100%;
+    .menu-nav{
+        position: relative;
     }
-    .carousel-wrapper * {
-    box-sizing: border-box;
+    .menu-bar{
+        position: absolute;
+        left: 49px;
+        right: auto;
+        top: 84px;
+        height: 3px;
+        background: #157aaf;
+        z-index: 1;
+        -webkit-transition: width 1s,left 1s,-webkit-transform 1s;
+        transition: width 1s,left 1s,-webkit-transform 1s;
+        transition: width 1s,left 1s,transform 1s;
+        transition: width 1s,left 1s,transform 1s,-webkit-transform 1s;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
     }
-    .carousel {
-    transform-style: preserve-3d;
+    .membership-popup {
+        display: none;
+        width: 100%;
+        max-width: 450px;
+        background: #fff;
+        border-radius: 3px;
+        z-index: 4;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
-    .carousel__photo {
-    opacity: 1;
-    position: absolute;
-    top:0;
-    width: 100%;
-    margin: auto;
-    padding: 1rem 4rem;
-    z-index: 100;
-    transition: transform .5s, z-index .5s;
+    .membership-popup .popup-head {
+        height: 60px;
+        line-height: 60px;
+        background: #006bea;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
     }
-    .carousel__photo.initial,
-    .carousel__photo.active {
-    opacity: 1;
-    position: relative;
-    z-index: 900;
+    .membership-popup .title {
+        font-size: 20px;
+        color: #ffff;
+        font-weight: bold;
+        text-align: center;
     }
-    .carousel__photo.prev,
-    .carousel__photo.next {
-    z-index: 800;
+    .membership-popup .popup-conts {
+        padding: 30px 20px;
     }
-    .carousel__photo.prev {
-    transform: translateX(-100%); /* Move 'prev' item to the left */
+    .membership-popup .desc {
+        font: 16px;
+        line-height: 1.4;
     }
-    .carousel__photo.next {
-    transform: translateX(100%); /* Move 'next' item to the right */
+    .membership-popup .popup-close {
+        width: 20px;
+        height: 20px;
+        top: 19px;
+        right: 20px;
     }
-    .carousel__button--prev,
-    .carousel__button--next {
-    position: absolute;
-    top:50%;
-    width: 3rem;
-    height: 3rem;
-    background-color: #FFF;
-    transform: translateY(-50%);
-    border-radius: 50%;
-    cursor: pointer; 
-    z-index: 1001; /* Sit on top of everything */
-    border: 1px solid black;
-    }
-    .carousel__button--prev {
-    left:0;
-    }
-    .carousel__button--next {
-    right:0;
-    }
-    .carousel__button--prev::after,
-    .carousel__button--next::after {
-    content: " ";
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: 50%;
-    left: 54%;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
-    transform: translate(-50%, -50%) rotate(135deg);
-    }
-    .carousel__button--next::after {
-    left: 47%;
-    transform: translate(-50%, -50%) rotate(-45deg);
-    }
-
     </style>
 
 </head>
@@ -213,6 +196,7 @@
                                 </div>
                             </li>
                         </ul>
+                        <div class="menu-bar"></div>
                     </nav>
                 </article>
                 <!--// main menu -->
@@ -327,9 +311,9 @@
                             </ul>
                             <div class="mo-menu-set">
                                 <a href="#"><img src="./images/icon-setting.png" alt="톱니바퀴 아이콘">설정</a>
-                                <a href="#"><img src="./images/icon-login.png" alt="로그인 아이콘">로그인</a>
+                                <a class="mo-login-bottom" href="#"><img src="./images/icon-login.png" alt="로그인 아이콘">로그인</a>
                             </div>
-                            <div class="menu-dimm"></div>
+                            <!-- <div class="menu-dimm"></div> -->
                         </div>
                     </section>
                 </article>
@@ -351,12 +335,12 @@
                                 <p class="kv-sub-tit">Samsung X OK CASHBAG</p>
                                 <strong class="kv-tit">삼성전자 제품, 이제 OK캐쉬백 <br>포인트로 구매하세요!</strong>
                                 <p class="kv-txt">삼성전자 OK캐쉬백 제휴카드 발급 시, 지정 사용처에서<br> 포인트를 합산하여 쓰실 수 있습니다.</p>
-                                <a class="common-btn" href="#">자세히 보기</a>
+                                <a class="common-btn first" href="#">자세히 보기</a>
                             </div>
                             <div class="kv-membership-news">
                                 <p class="news-tit">MEMBERSHIP NEWS</p>
                                 <p class="news-txt">나의 멤버십 등급부터 보유<br> 포인트까지! 마이 멤버십 둘러보기</p>
-                                <a class="common-btn" href="#">자세히 보기</a>
+                                <a class="common-btn last" href="#">자세히 보기</a>
                             </div>
                         </li>
                         <li class="kv-slide02">
@@ -368,12 +352,12 @@
                                 <p class="kv-sub-tit">2</p>
                                 <strong class="kv-tit">삼성전자 제품, 이제 OK캐쉬백 <br>포인트로 구매하세요!</strong>
                                 <p class="kv-txt">삼성전자 OK캐쉬백 제휴카드 발급 시, 지정 사용처에서<br> 포인트를 합산하여 쓰실 수 있습니다.</p>
-                                <a class="common-btn" href="#">자세히 보기</a>
+                                <a class="common-btn first" href="#">자세히 보기</a>
                             </div>
                             <div class="kv-membership-news">
                                 <p class="news-tit">2</p>
                                 <p class="news-txt">나의 멤버십 등급부터 보유<br> 포인트까지! 마이 멤버십 둘러보기</p>
-                                <a class="common-btn" href="#">자세히 보기</a>
+                                <a class="common-btn last" href="#">자세히 보기</a>
                             </div>    
                         </li>
                         <li class="kv-slide03"> 
@@ -385,12 +369,12 @@
                                 <p class="kv-sub-tit">3</p>
                                 <strong class="kv-tit">삼성전자 제품, 이제 OK캐쉬백 <br>포인트로 구매하세요!</strong>
                                 <p class="kv-txt">삼성전자 OK캐쉬백 제휴카드 발급 시, 지정 사용처에서<br> 포인트를 합산하여 쓰실 수 있습니다.</p>
-                                <a class="common-btn" href="#">자세히 보기</a>
+                                <a class="common-btn first" href="#">자세히 보기</a>
                             </div>
                             <div class="kv-membership-news">
                                 <p class="news-tit">3</p>
                                 <p class="news-txt">나의 멤버십 등급부터 보유<br> 포인트까지! 마이 멤버십 둘러보기</p>
-                                <a class="common-btn" href="#">자세히 보기</a>
+                                <a class="common-btn last" href="#">자세히 보기</a>
                             </div>
                         </li>
                         <li class="kv-slide04">
@@ -402,12 +386,12 @@
                                 <p class="kv-sub-tit">4</p>
                                 <strong class="kv-tit">삼성전자 제품, 이제 OK캐쉬백 <br>포인트로 구매하세요!</strong>
                                 <p class="kv-txt">삼성전자 OK캐쉬백 제휴카드 발급 시, 지정 사용처에서<br> 포인트를 합산하여 쓰실 수 있습니다.</p>
-                                <a class="common-btn" href="#">자세히 보기</a>
+                                <a class="common-btn first" href="#">자세히 보기</a>
                             </div>
                             <div class="kv-membership-news">
                                 <p class="news-tit">4</p>
                                 <p class="news-txt">나의 멤버십 등급부터 보유<br> 포인트까지! 마이 멤버십 둘러보기</p>
-                                <a class="common-btn" href="#">자세히 보기</a>
+                                <a class="common-btn last" href="#">자세히 보기</a>
                             </div>
                         </li>
                         <li class="kv-slide05">
@@ -419,12 +403,12 @@
                                 <p class="kv-sub-tit">5</p>
                                 <strong class="kv-tit">삼성전자 제품, 이제 OK캐쉬백 <br>포인트로 구매하세요!</strong>
                                 <p class="kv-txt">삼성전자 OK캐쉬백 제휴카드 발급 시, 지정 사용처에서<br> 포인트를 합산하여 쓰실 수 있습니다.</p>
-                                <a class="common-btn" href="#">자세히 보기</a>
+                                <a class="common-btn first" href="#">자세히 보기</a>
                             </div>
                             <div class="kv-membership-news">
                                 <p class="news-tit">5</p>
                                 <p class="news-txt">나의 멤버십 등급부터 보유<br> 포인트까지! 마이 멤버십 둘러보기</p>
-                                <a class="common-btn" href="#">자세히 보기</a>
+                                <a class="common-btn last" href="#">자세히 보기</a>
                             </div>
                         </li>
                     </ul>                    
@@ -758,7 +742,7 @@
         </div>
         <!-- // footer -->
     </div>
-    <div class="membership-life-popup">
+    <!-- <div class="membership-life-popup">
         <div class="life-popup">미세먼지로부터 집안공기를 쾌적하게 유지하는 방법</div>
         <div class="life-popup">여름철 쉽게 상하는 음식들 안전하게 보관하는 꿀팁!</div>
         <div class="life-popup">현대적인 인테리어와 조화를 이룬 감각적인 TV</div>
@@ -766,9 +750,23 @@
         <div class="life-popup">내 손안의 스마트 빔 - 아담한 크기, 간편한 휴대성</div>
         <div class="life-popup">세탁 도중에 아차! 하지 마세요,</div>
         <button type="button" class="popup-close"><span class="blind">닫기 버튼</span></button>
+    </div> -->
+
+    <div class="membership-popup">
+        <div class="popup-head">
+            <h3 class="title"></h3>
+        </div>
+        <div class="popup-conts">
+            <div class="desc">
+                <a href="#">asdfasdfasdf</a>
+                <a href="#">111111111</a>
+            </div>
+        </div>
+        <button type="button" class="popup-close"><span class="blind">닫기 버튼</span></button>
     </div>
+
     <div class="popup-dimm"></div>
     <!-- <script src="js/index.js"></script> -->
-    <script src="index-task.js"></script>
+    <script src="new.js"></script>
 </body>
 </html>
