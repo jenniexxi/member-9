@@ -1277,6 +1277,72 @@ footer {
 
 
 
+/**/
+.menu-nav {
+    position: relative;
+}
+
+.menu-bar {
+    position: absolute;
+    left: 49px;
+    right: auto;
+    top: 84px;
+    height: 3px;
+    background: #157aaf;
+    z-index: 1;
+    -webkit-transition: width 1s, left 1s, -webkit-transform 1s;
+    transition: width 1s, left 1s, -webkit-transform 1s;
+    transition: width 1s, left 1s, transform 1s;
+    transition: width 1s, left 1s, transform 1s, -webkit-transform 1s;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.membership-popup {
+    display: none;
+    width: 100%;
+    max-width: 450px;
+    background: #fff;
+    border-radius: 3px;
+    z-index: 4;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.membership-popup .popup-head {
+    height: 60px;
+    line-height: 60px;
+    background: #006bea;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.membership-popup .title {
+    font-size: 20px;
+    color: #ffff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.membership-popup .popup-conts {
+    padding: 30px 20px;
+}
+
+.membership-popup .desc {
+    font: 16px;
+    line-height: 1.4;
+}
+
+.membership-popup .popup-close {
+    width: 20px;
+    height: 20px;
+    top: 19px;
+    right: 20px;
+}
+
+
 
 @media screen and (max-width:1440px) {
     .kv-slide-wrap {
@@ -1327,8 +1393,8 @@ footer {
 
     .mo-menubar {
         z-index: 2;
-        position: fixed;
-        top: 0;
+        /* position: fixed; */
+        /* top: 0; */
         padding: 0 20px;
         width: 100%;
         height: 58px;
@@ -1577,7 +1643,7 @@ footer {
     }
 
     .kv-wrap {
-        margin: 58px 0 50px;
+        /* margin: 58px 0 50px; */
     }
 
     .kv-wrap .slide-arrow {

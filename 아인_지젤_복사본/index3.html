@@ -11,62 +11,7 @@
 
 
     <style>
-    .menu-nav{
-        position: relative;
-    }
-    .menu-bar{
-        position: absolute;
-        left: 49px;
-        right: auto;
-        top: 84px;
-        height: 3px;
-        background: #157aaf;
-        z-index: 1;
-        -webkit-transition: width 1s,left 1s,-webkit-transform 1s;
-        transition: width 1s,left 1s,-webkit-transform 1s;
-        transition: width 1s,left 1s,transform 1s;
-        transition: width 1s,left 1s,transform 1s,-webkit-transform 1s;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-    }
-    .membership-popup {
-        display: none;
-        width: 100%;
-        max-width: 450px;
-        background: #fff;
-        border-radius: 3px;
-        z-index: 4;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    .membership-popup .popup-head {
-        height: 60px;
-        line-height: 60px;
-        background: #006bea;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-    }
-    .membership-popup .title {
-        font-size: 20px;
-        color: #ffff;
-        font-weight: bold;
-        text-align: center;
-    }
-    .membership-popup .popup-conts {
-        padding: 30px 20px;
-    }
-    .membership-popup .desc {
-        font: 16px;
-        line-height: 1.4;
-    }
-    .membership-popup .popup-close {
-        width: 20px;
-        height: 20px;
-        top: 19px;
-        right: 20px;
-    }
+    
     </style>
 
 </head>
@@ -187,7 +132,7 @@
                                         </li>
                                         <li>
                                             <p>나의 참여 내역</p>
-                                            <ul>
+                                            <ul class="sub-depth-list">
                                                 <li><a href="#">- 응모한 이벤트</a></li>
                                                 <li><a href="#">- 이전 라이프 가입 내역 조회</a></li>
                                             </ul>
@@ -511,7 +456,7 @@
                         <p><span class="user-name">홍길동</span> 고객님을 위한 추천 컨텐츠</p>
                     </div>
                     <ul class="members-life-content">
-                        <li>
+                        <li role-code="pop1" data-title="타이틀1" data-desc="미세먼지로부터 집안공기를 쾌적하게 유지하는 방법">
                             <a href="#">
                                 <figure>
                                     <img src="./images/members-life01.jpg" alt="검은색 청소기가 카페트위에 올려져있는 모습">
@@ -520,7 +465,7 @@
                                 <p>미세먼지로부터 집안공기를 쾌적하게 유지하는 방법</p>
                             </a>
                         </li>
-                        <li>
+                        <li role-code="pop2" data-title="타이틀2" data-desc="여름철 쉽게 상하는 음식들 안전하게 보관하는 꿀팁!">
                             <a href="#">
                                 <figure>
                                     <img src="./images/members-life02.jpg" alt="하얀 냉장고에 신선한 과일과 야채가 가득 들어있고 열린 야채보관함에서 냉기가 나오고있다.">
@@ -529,7 +474,7 @@
                                 <p>여름철 쉽게 상하는 음식들 안전하게 보관하는 꿀팁!<br>여름철 쉽게 상하는 음식들 안전하게 보관하는 꿀팁!</p>
                             </a>
                         </li>
-                        <li>
+                        <li role-code="pop3" data-title="타이틀3" data-desc="현대적인 인테리어와 조화를 이룬 감각적인 TV">
                             <a href="#">
                                 <figure>
                                     <img src="./images/members-life03.jpg" alt="하얀 프레임이 살짝 튀어나온 감각적인 디자인의 티비가 비스듬히 세워져있다.">
@@ -538,7 +483,7 @@
                                 <p>현대적인 인테리어와 조화를 이룬 감각적인 TV</p>
                             </a>
                         </li>
-                        <li>
+                        <li role-code="pop4" data-title="타이틀4" data-desc="핫블라스트 직화열풍으로 뚝딱 해내는 초대 요리">
                             <a href="#">
                                 <figure>
                                     <img src="./images/members-life04.jpg" alt="하얀색 삼성오븐기">
@@ -547,7 +492,7 @@
                                 <p>핫블라스트 직화열풍으로 뚝딱 해내는 초대 요리</p>
                             </a>
                         </li>
-                        <li>
+                        <li role-code="pop5" data-title="타이틀5" data-desc="내 손안의 스마트 빔 - 아담한 크기, 간편한 휴대성">
                             <a href="#">
                                 <figure>
                                     <img src="./images/members-life05.jpg" alt="한 손에 아담한크기의 하얀색 스마트 빔이 들려있다.">
@@ -556,7 +501,7 @@
                                 <p>내 손안의 스마트 빔 - 아담한 크기, 간편한 휴대성</p>
                             </a>
                         </li>
-                        <li>
+                        <li role-code="pop6" data-title="타이틀6" data-desc="세탁 도중에 아차! 하지 마세요.">
                             <a href="#">
                                 <figure>
                                     <img src="./images/members-life06.jpg" alt="햐얀배경에 흰색 세탁기가 작동되고있다.">
@@ -757,16 +702,12 @@
             <h3 class="title"></h3>
         </div>
         <div class="popup-conts">
-            <div class="desc">
-                <a href="#">asdfasdfasdf</a>
-                <a href="#">111111111</a>
-            </div>
+            <div class="desc"></div>
         </div>
         <button type="button" class="popup-close"><span class="blind">닫기 버튼</span></button>
     </div>
 
     <div class="popup-dimm"></div>
-    <!-- <script src="js/index.js"></script> -->
     <script src="new.js"></script>
 </body>
 </html>

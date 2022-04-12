@@ -1,0 +1,36 @@
+{
+    "response": {
+        "dataList": [
+            {
+                "rolecode": "pop1",
+                "title": "title1",
+                "desc": "미세먼지로부터 집안공기를 쾌적하게 유지하는 방법"
+            },
+            {
+                "rolecode": "pop2",
+                "title": "title2",
+                "desc": "여름철 쉽게 상하는 음식들 안전하게 보관하는 꿀팁!"
+            },
+            {
+                "rolecode": "pop3",
+                "title": "title3",
+                "desc": "현대적인 인테리어와 조화를 이룬 감각적인 TV"
+            },
+            {
+                "rolecode": "pop4",
+                "title": "title4",
+                "desc": "핫블라스트 직화열풍으로 뚝딱 해내는 초대 요리"
+            },
+            {
+                "rolecode": "pop5",
+                "title": "title5",
+                "desc": "내 손안의 스마트 빔 - 아담한 크기, 간편한 휴대성"
+            },
+            {
+                "rolecode": "pop6",
+                "title": "title6",
+                "desc": "세탁 도중에 아차! 하지 마세요,"
+            }
+        ]
+    }
+}
