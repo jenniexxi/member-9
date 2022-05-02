@@ -771,7 +771,7 @@ body {
     transform: translate(-50%, -50%);
     width: 42px;
     height: 42px;
-    background: url('../images/icon-life-plus.png')no-repeat;
+    background: url('../images/icon-life-plus.png') no-repeat;
     opacity: 0;
 }
 

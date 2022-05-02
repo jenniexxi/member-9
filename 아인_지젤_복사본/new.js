@@ -79,6 +79,13 @@
                 slide.reset();
             }
 
+            //width 계산
+            // slide.elem.slides.forEach((__slide) => {
+            //     __slide.removeAttribute('style');
+            //     setTimeout( ()=> {
+            //         __slide.setAttribute('style', `width: ${__slide.offsetWidth}px`);
+            //     }, 0);
+            // });
 
             if (windowWidth > 1200) {
                 gnb.elem.moMenuWrap.style.display = "none";
